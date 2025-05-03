@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Claim your free $100 Amazon gift card by completing a quick offer. Limited time offer - expires soon!"/>
+  <title>Claim Your Free $100 Amazon Gift Card - Limited Time Offer!</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Styles -->
+  <style>
+    :root {
+      --primary-color: #FF6F31; /* Orange */
+      --accent-color: #4CAF50; /* Green for contrast */
+      --gradient-start: #FF6F31;
+      --gradient-end: #FF9F45;
+      --bg-color: #FFFFFF;
+      --text-dark: #2D2D2D;
+      --text-light: #5A5A5A;
+      --card-bg: #FAFAFA;
+      --card-border: rgba(0,0,0,0.05);
+      --card-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    header, section, footer {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h1, h2, h3 {
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    h2:after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background: var(--primary-color);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      color: #fff;
+      padding: 16px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 111, 49, 0.3);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: all 0.3s;
+      z-index: -1;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 111, 49, 0.4);
+    }
+    
+    .btn:hover:before {
+      width: 100%;
+    }
+
+    /* Pulse animation for CTA buttons */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px 80px;
+      background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2lmdCUyMGNhcmR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60');
+      background-size: cover;
+      background-position: center;
+      border-radius: 0 0 50% 50% / 10%;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .hero:before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end), var(--gradient-start));
+      opacity: 0.3;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: var(--text-dark);
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+    }
+    
+    .hero h1:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 12px;
+      background-color: rgba(255, 111, 49, 0.2);
+      bottom: 5px;
+      left: 0;
+      z-index: -1;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: var(--text-light);
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .amazon-logo {
+      max-width: 120px;
+      margin-bottom: 20px;
+    }
+    
+    .timer-container {
+      margin: 30px auto;
+      max-width: 400px;
+      background-color: rgba(255,255,255,0.9);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: var(--card-shadow);
+    }
+    
+    .timer-heading {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      color: var(--text-light);
+    }
+    
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .countdown-box {
+      background-color: var(--text-dark);
+      color: white;
+      padding: 10px 5px;
+      border-radius: 5px;
+      min-width: 60px;
+      text-align: center;
+    }
+    
+    .countdown-num {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .countdown-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+    
+    .limited-notice {
+      display: inline-block;
+      background-color: rgba(255, 111, 49, 0.1);
+      color: var(--primary-color);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+    
+    .limited-notice i {
+      margin-right: 5px;
+    }
+
+    .steps, .benefits, .testimonials, .faq {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .step-card, .benefit-card {
+      background-color: var(--card-bg);
+      padding: 30px;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+      text-align: center;
+      position: relative;
+    }
+    
+    .testimonial, .faq-item {
+      background-color: var(--card-bg);
+      padding: 30px;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+    }
+
+    .step-card:hover, .benefit-card:hover, .testimonial:hover, .faq-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .step-card .step-number {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      color: white;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+
+    .icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+      background: rgba(255, 111, 49, 0.1);
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+    }
+    
+    .benefit-card .icon {
+      background: rgba(76, 175, 80, 0.1);
+      color: var(--accent-color);
+    }
+
+    .faq-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .faq-item h3:before {
+      content: 'Q';
+      margin-right: 10px;
+      background: var(--primary-color);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+    
+    .faq-item p:before {
+      content: 'A';
+      margin-right: 10px;
+      background: var(--accent-color);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      position: relative;
+      top: -2px;
+    }
+    
+    .testimonial {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .testimonial p {
+      flex-grow: 1;
+      position: relative;
+      padding: 0 10px;
+    }
+    
+    .testimonial p:before, .testimonial p:after {
+      content: '"';
+      font-size: 3rem;
+      color: rgba(255, 111, 49, 0.2);
+      position: absolute;
+      line-height: 1;
+    }
+    
+    .testimonial p:before {
+      left: -10px;
+      top: -15px;
+    }
+    
+    .testimonial p:after {
+      right: -10px;
+      bottom: -20px;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+    }
+    
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #f0f0f0;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    .verified-badge {
+      font-size: 0.8rem;
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+      margin-top: 5px;
+    }
+    
+    .verified-badge i {
+      margin-right: 5px;
+    }
+
+    .cta-final {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2lmdCUyMGNhcmR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60');
+      background-size: cover;
+      background-position: center;
+      border-radius: 20px;
+      margin: 20px auto 70px;
+      max-width: 900px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--card-border);
+    }
+    
+    .cta-final h2 {
+      font-size: 2.2rem;
+    }
+    
+    .reward-counter {
+      margin: 10px 0 30px;
+      font-size: 1.1rem;
+      color: var(--text-light);
+    }
+    
+    .reward-counter span {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+    
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      padding: 40px 20px;
+    }
+    
+    footer a {
+      color: var(--text-light);
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+    
+    footer a:hover {
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .steps, .benefits, .testimonials, .faq {
+        grid-template-columns: 1fr;
+      }
+      
+      .countdown {
+        gap: 10px;
+      }
+      
+      .countdown-box {
+        min-width: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="limited-notice"><i class="fas fa-fire"></i> Limited Time Offer</div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png" alt="Amazon" class="amazon-logo">
+    <h1>Get Your $100 Amazon Gift Card</h1>
+    <p>Complete a quick offer and receive your reward instantly. Join thousands of happy customers who've already claimed theirs!</p>
+    
+    <div class="timer-container">
+      <div class="timer-heading">This offer expires in:</div>
+      <div class="countdown">
+        <div class="countdown-box">
+          <div class="countdown-num" id="hours">24</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="minutes">00</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="seconds">00</div>
+          <div class="countdown-label">Seconds</div>
+        </div>
+      </div>
+    </div>
+    
+    <a href="https://www.cpalead.com/locker.php?yourlockerid" class="btn pulse">Claim Your Reward Now</a>
+  </header>
+
+  <!-- How It Works Section -->
+  <section>
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="icon"><i class="fas fa-mouse-pointer"></i></div>
+        <h3>Click & Complete</h3>
+        <p>Click the claim button and complete one quick offer from our trusted partners.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="icon"><i class="fas fa-check-circle"></i></div>
+        <h3>Verify Details</h3>
+        <p>Verify your email or complete a short survey (takes less than 2 minutes).</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="icon"><i class="fas fa-gift"></i></div>
+        <h3>Get Your Gift Card</h3>
+        <p>Receive your $100 Amazon gift card directly to your inbox - ready to use!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section>
+    <h2>Why People Love This Offer</h2>
+    <div class="benefits">
+      <div class="benefit-card">
+        <div class="icon"><i class="fas fa-bolt"></i></div>
+        <h3>Instant Delivery</h3>
+        <p>Receive your gift card within minutes after completing the simple verification process.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>100% Secure & Legitimate</h3>
+        <p>No scams or hidden fees. We partner with trusted networks to deliver authentic rewards.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon"><i class="fas fa-clock"></i></div>
+        <h3>Quick & Easy Process</h3>
+        <p>The entire process takes less than 2 minutes - we value your time as much as you do!</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon"><i class="fas fa-shopping-cart"></i></div>
+        <h3>Shop Anything on Amazon</h3>
+        <p>Use your gift card to shop from millions of products available on Amazon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section>
+    <h2>What Our Happy Users Say</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>"I was skeptical at first, but decided to give it a try. Got my gift card in under 5 minutes! Already used it to buy that Nintendo game I've been wanting!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SM</div>
+          <div>
+            <strong>Sarah M.</strong>
+            <div class="verified-badge"><i class="fas fa-check-circle"></i> Verified User</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p>"This is actually legit! I was doubtful but it worked perfectly. The verification process was quick and my gift card arrived minutes later. Will definitely share with friends!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JD</div>
+          <div>
+            <strong>John D.</strong>
+            <div class="verified-badge"><i class="fas fa-check-circle"></i> Verified User</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p>"Awesome deal! Got my $100 gift card today and already ordered some kitchen gadgets I've been eyeing. The whole process was super easy and straightforward."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">LK</div>
+          <div>
+            <strong>Lisa K.</strong>
+            <div class="verified-badge"><i class="fas fa-check-circle"></i> Verified User</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <h3>Is this offer really legitimate?</h3>
+        <p>Absolutely! We work with trusted CPA networks to deliver real Amazon gift cards. We've already helped thousands of users claim their rewards.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do I need to pay anything to get the gift card?</h3>
+        <p>No! The $100 Amazon gift card is completely free. You just need to complete a quick verification step – no purchase required.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How long does it take to receive my gift card?</h3>
+        <p>Most users receive their gift card within 5-10 minutes after completing the verification. You'll get an email with your gift card code that you can use immediately.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I claim this offer more than once?</h3>
+        <p>This special offer is limited to one per user/device/email address to ensure everyone gets a fair chance to participate.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What can I buy with my Amazon gift card?</h3>
+        <p>Your $100 gift card can be used to purchase anything available on Amazon – from electronics and books to clothes and household items!</p>
+      </div>
+      <div class="faq-item">
+        <h3>Why are you giving away free gift cards?</h3>
+        <p>Our partners pay us for each completed offer, allowing us to provide these gift cards to users like you. It's a win-win for everyone!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="cta-final">
+    <h2>Ready to Get Your $100 Amazon Gift Card?</h2>
+    <div class="reward-counter">Only <span id="remaining-cards">37</span> gift cards remaining today!</div>
+    <p>Don't miss out – this limited-time offer won't last forever!</p>
+    <a href="https://www.cpalead.com/locker.php?yourlockerid" class="btn pulse">Claim Your Reward Now</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 GiftCardOfferSite.com | All Rights Reserved</p>
+    <p>
+      <a href="#">Terms of Service</a> | 
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Contact Us</a> | 
+      <a href="#">FAQ</a>
+    </p>
+  </footer>
+
+  <!-- Simple JavaScript for the countdown timer and remaining cards counter -->
+  <script>
+    // Set the countdown time (24 hours from now)
+    const countdownDate = new Date();
+    countdownDate.setHours(countdownDate.getHours() + 24);
+    
+    // Update the countdown every second
+    const countdown = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+      
+      // Calculate hours, minutes and seconds
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      // Display the result
+      document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+      
+      // If the countdown is finished, clear the interval
+      if (distance < 0) {
+        clearInterval(countdown);
+        document.getElementById("hours").innerHTML = "00";
+        document.getElementById("minutes").innerHTML = "00";
+        document.getElementById("seconds").innerHTML = "00";
+      }
+    }, 1000);
+    
+    // Create urgency with decreasing number of available cards
+    let remainingCards = 37;
+    setInterval(function() {
+      if(Math.random() > 0.7 && remainingCards > 1) {
+        remainingCards--;
+        document.getElementById("remaining-cards").innerHTML = remainingCards;
+      }
+    }, 30000); // Decrease randomly every 30 seconds
+  </script>
+
+</body>
+</html>
